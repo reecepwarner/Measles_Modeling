@@ -8,8 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fmin
 
-# note for me: delay-coordinate mapping on parameters?
-
 
 def SIR(t, S, p):
     s, i, r = S
