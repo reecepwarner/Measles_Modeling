@@ -7,7 +7,10 @@ Created on Wed Aug 19 10:36:58 2026
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fmin
+import matplotlib as mpl
 
+mpl.rcParams['text.usetex'] = True
+mpl.rcParams['text.latex.preamble'] = r'\usepackage{amsfonts,amsmath,amssymb,amsthm,mathpazo, bm,mathabx, tgheros, helvet}'
 
 def SIR(t, S, p):
     s, i, r = S
@@ -145,8 +148,9 @@ ax1[0,0].plot(t, S_total, color = 'cornflowerblue', label = r'$S_{\text{total}}(
 ax1[0,0].plot(t,I_total, color = 'tomato', label = r'$I_{\text{total}}(t)$', linewidth = 5)
 ax1[0,0].plot(t,R_total, color = 'lime', label = r'$R_{\text{total}}(t)$', linewidth = 5)
 ax1[0,0].legend(fontsize = 15)
-ax1[0,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax1[0,0].set_ylabel(r"%$\text{pop}_{\text{total}}$", fontsize = 15)
+ax1[0,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax1[0,0].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax1[0,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax1[0,0].set_ylim(0, 1.1)
 ax1[0,0].set_xlim(t0, tf+1)
 ax1[0,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -157,8 +161,9 @@ ax1[0,1].plot(t, S1, color = 'cornflowerblue', label = r'$S_{1}(t)$', linewidth 
 ax1[0,1].plot(t,I1, color = 'tomato', label = r'$I_{1}(t)$', linewidth = 5)
 ax1[0,1].plot(t,R1, color = 'lime', label = r'$R_{1}(t)$', linewidth = 5)
 ax1[0,1].legend(fontsize = 15)
-ax1[0,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax1[0,1].set_ylabel(r"%$\text{pop}_{1}$", fontsize = 15)
+ax1[0,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax1[0,1].set_ylabel(r"\%$\text{pop}_{1}$", fontsize = 20)
+ax1[0,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax1[0,1].set_ylim(0, 1.1)
 ax1[0,1].set_xlim(t0, tf+1)
 ax1[0,1].set_xticks(np.arange(t0, tf+1, 10))
@@ -169,8 +174,9 @@ ax1[1,0].plot(t, S2, color = 'cornflowerblue', label = r'$S_{2}(t)$', linewidth 
 ax1[1,0].plot(t,I2, color = 'tomato', label = r'$I_{2}(t)$', linewidth = 5)
 ax1[1,0].plot(t,R2, color = 'lime', label = r'$R_{2}(t)$', linewidth = 5)
 ax1[1,0].legend(fontsize = 15)
-ax1[1,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax1[1,0].set_ylabel(r"%$\text{pop}_{2}$", fontsize = 15)
+ax1[1,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax1[1,0].set_ylabel(r"\%$\text{pop}_{2}$", fontsize = 20)
+ax1[1,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax1[1,0].set_ylim(0, 1.1)
 ax1[1,0].set_xlim(t0, tf+1)
 ax1[1,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -181,14 +187,15 @@ ax1[1,1].plot(t, S3, color = 'cornflowerblue', label = r'$S_{3}(t)$', linewidth 
 ax1[1,1].plot(t, I3, color = 'tomato', label = r'$I_{3}(t)$', linewidth = 5)
 ax1[1,1].plot(t, R3, color = 'lime', label = r'$R_{3}(t)$', linewidth = 5)
 ax1[1,1].legend(fontsize = 15)
-ax1[1,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax1[1,1].set_ylabel(r"%$\text{pop}_{3}$", fontsize = 15)
+ax1[1,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax1[1,1].set_ylabel(r"\%$\text{pop}_{3}$", fontsize = 20)
+ax1[1,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax1[1,1].set_ylim(0, 2.1)
 ax1[1,1].set_xlim(t0, tf+1)
 ax1[1,1].set_xticks(np.arange(t0, tf+1, 10))
 ax1[1,1].set_yticks(np.arange(0.5, 3, 0.5))
 ax1[1,1].set_title("(d)", fontsize = 15)
-fig1.suptitle("3-Coupled SIR Model", fontweight = 'semibold', fontsize = 20)
+fig1.suptitle(r"\textbf{3-Coupled SIR Model}", fontsize = 30)
 fig1.tight_layout()
 
 
@@ -368,8 +375,9 @@ ax2[0,0].plot(t_data, I_data, linestyle = ' ', marker = '^', markersize = 7, col
 
 
 ax2[0,0].legend(fontsize = 15)
-ax2[0,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax2[0,0].set_ylabel(r"%$\text{inf}_{\text{total}}$", fontsize = 15)
+ax2[0,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax2[0,0].set_ylabel(r"\%$\text{inf}_{\text{total}}$", fontsize = 20)
+ax2[0,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax2[0,0].set_ylim(0, .6)
 ax2[0,0].set_xlim(t0, tf+1)
 ax2[0,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -398,10 +406,11 @@ tbbox = leg1.get_window_extent()
 inv = plt.gca().transAxes.inverted()
 x0, y0 = inv.transform((tbbox.x0, tbbox.y0))
 
-ax2[0,1].text(x0+0.05, y0+0.05, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
+ax2[0,1].text(x0+0.05, y0+0.15, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
 
-ax2[0,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax2[0,1].set_ylabel(r"%$\text{pop}_{\text{total}}$", fontsize = 15)
+ax2[0,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax2[0,1].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax2[0,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax2[0,1].set_ylim(0, 1.1)
 ax2[0,1].set_xlim(t0, tf+1)
 ax2[0,1].set_xticks(np.arange(t0, tf+1, 10))
@@ -429,10 +438,11 @@ tbbox = leg2.get_window_extent()
 inv = plt.gca().transAxes.inverted()
 x1, y1 = inv.transform((tbbox.x0, tbbox.y0))
 
-ax2[1,0].text(x1+0.05, 13*y1, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
+ax2[1,0].text(x1, 13*y1, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
 
-ax2[1,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax2[1,0].set_ylabel(r"%$\text{pop}_{\text{total}}$", fontsize = 15)
+ax2[1,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax2[1,0].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax2[1,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax2[1,0].set_ylim(0, 1.1)
 ax2[1,0].set_xlim(t0, tf+1)
 ax2[1,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -463,15 +473,16 @@ x0, y0 = inv.transform((tbbox.x0, tbbox.y0))
 
 ax2[1,1].text(x0+0.05, 13*y0, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
 
-ax2[1,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax2[1,1].set_ylabel(r"%$\text{pop}_{\text{total}}$", fontsize = 15)
+ax2[1,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax2[1,1].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax2[1,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax2[1,1].set_ylim(0, 1.1)
 ax2[1,1].set_xlim(t0, tf+1)
 ax2[1,1].set_xticks(np.arange(t0, tf+1, 10))
 ax2[1,1].set_yticks(np.arange(0.1, 1.1, 0.1))
 ax2[1,1].set_title("(d)", fontsize = 15)
 
-fig2.suptitle("3-Coupled SIR Model Time-Series from Parameter Estimates\nnoise = %1.3f" %(noise), fontsize = 20, fontweight = 'semibold')
+fig2.suptitle("3-Coupled SIR Model Time-Series from Parameter Estimates\nnoise = %1.3f" %(noise), fontsize = 25)
 fig2.tight_layout()
 fig2.show()
 
@@ -556,8 +567,9 @@ ax3[0,0].plot(t, S_total_cp, color = 'cornflowerblue', label = r'$S_{\text{total
 ax3[0,0].plot(t,I_total_cp, color = 'tomato', label = r'$I_{\text{total}}(t)$', linewidth = 5)
 ax3[0,0].plot(t,R_total_cp, color = 'lime', label = r'$R_{\text{total}}(t)$', linewidth = 5)
 ax3[0,0].legend(fontsize = 15)
-ax3[0,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax3[0,0].set_ylabel(r"%$\text{pop}_{\text{total}}$", fontsize = 15)
+ax3[0,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax3[0,0].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax3[0,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax3[0,0].set_ylim(0, 1.1)
 ax3[0,0].set_xlim(t0, tf+1)
 ax3[0,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -568,8 +580,9 @@ ax3[0,1].plot(t, S1_cp, color = 'cornflowerblue', label = r'$S_{1}(t)$', linewid
 ax3[0,1].plot(t,I1_cp, color = 'tomato', label = r'$I_{1}(t)$', linewidth = 5)
 ax3[0,1].plot(t,R1_cp, color = 'lime', label = r'$R_{1}(t)$', linewidth = 5)
 ax3[0,1].legend(fontsize = 15)
-ax3[0,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax3[0,1].set_ylabel(r"%$\text{pop}_{1}$", fontsize = 15)
+ax3[0,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax3[0,1].set_ylabel(r"\%$\text{pop}_{1}$", fontsize = 20)
+ax3[0,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax3[0,1].set_ylim(0, 1.1)
 ax3[0,1].set_xlim(t0, tf+1)
 ax3[0,1].set_xticks(np.arange(t0, tf+1, 10))
@@ -580,8 +593,9 @@ ax3[1,0].plot(t, S2_cp, color = 'cornflowerblue', label = r'$S_{2}(t)$', linewid
 ax3[1,0].plot(t,I2_cp, color = 'tomato', label = r'$I_{2}(t)$', linewidth = 5)
 ax3[1,0].plot(t,R2_cp, color = 'lime', label = r'$R_{2}(t)$', linewidth = 5)
 ax3[1,0].legend(fontsize = 15)
-ax3[1,0].set_xlabel("time [a.u.]", fontsize = 15)
-ax3[1,0].set_ylabel(r"%$\text{pop}_{2}$", fontsize = 15)
+ax3[1,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax3[1,0].set_ylabel(r"\%$\text{pop}_{2}$", fontsize = 20)
+ax3[1,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax3[1,0].set_ylim(0, 1.1)
 ax3[1,0].set_xlim(t0, tf+1)
 ax3[1,0].set_xticks(np.arange(t0, tf+1, 10))
@@ -592,29 +606,363 @@ ax3[1,1].plot(t, S3_cp, color = 'cornflowerblue', label = r'$S_{3}(t)$', linewid
 ax3[1,1].plot(t, I3_cp, color = 'tomato', label = r'$I_{3}(t)$', linewidth = 5)
 ax3[1,1].plot(t, R3_cp, color = 'lime', label = r'$R_{3}(t)$', linewidth = 5)
 ax3[1,1].legend(fontsize = 15)
-ax3[1,1].set_xlabel("time [a.u.]", fontsize = 15)
-ax3[1,1].set_ylabel(r"%$\text{pop}_{3}$", fontsize = 15)
+ax3[1,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax3[1,1].set_ylabel(r"\%$\text{pop}_{3}$", fontsize = 20)
+ax3[1,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
 ax3[1,1].set_ylim(0, 1.1)
 ax3[1,1].set_xlim(t0, tf+1)
 ax3[1,1].set_xticks(np.arange(t0, tf+1, 10))
 ax3[1,1].set_yticks(np.arange(0.1, 1.1, 0.1))
 ax3[1,1].set_title("(d)", fontsize = 15)
-fig3.suptitle("3-Coupled SIR Model Const Subpop", fontweight = 'semibold', fontsize = 20)
+fig3.suptitle("3-Coupled SIR Model Const Subpop", fontsize = 25)
 fig3.tight_layout()
 
 
+# =============================================================================
+# Constant Subpopulation 3-coupled PE
+# =============================================================================
+
+
+# infectivity and recovery rates, respectively
+beta11 = 0.25
+beta12 = 0.10
+beta13 = 0.22
+
+beta21 = 0.35
+beta22 = 0.15
+beta23 = 0.25
+
+beta31 = 0.75
+beta32 = 0.05
+beta33 = 0.05
+
+gamma1 = 1.00
+gamma2 = 0.35
+gamma3 = 0.15
+
+p = np.array([beta11, beta12, beta13, gamma1,
+              beta21, beta22, beta23, gamma2,
+              beta31, beta32, beta33, gamma3])
+
+
+def SIR_3_const_subpop_fixed_infect(t, S, p):
+    
+    s1, i1, r1, s2, i2, r2, s3, i3, r3 = S
+    
+    p1, p2, p3 = p
+    
+    return np.array([-(beta11*i1 + beta12*i2 + beta13*i3)*(s1),
+                     (beta11*i1 + beta12*i2 + beta13*i3)*(s1)-p1*i1,
+                     p1*i1,
+                     
+                     -(beta21*i1 + beta22*i2 + beta23*i3)*(s2),
+                     (beta21*i1 + beta22*i2 + beta23*i3)*(s2)-p2*i2,
+                     p2*i2,
+                     
+                     -(beta31*i1 + beta32*i2 + beta33*i3)*(s3),
+                     (beta31*i1 + beta32*i2 + beta33*i3)*(s3)-p3*i3,
+                     p3*i3,
+                     
+                     ])
+
+
+def SIR_3_const_subpop_fixed_recov(t, S, p):
+    
+    s1, i1, r1, s2, i2, r2, s3, i3, r3 = S
+    
+    p11, p12, p13, p21, p22, p23, p31, p32, p33 = p
+    
+    return np.array([-(p11*i1 + p12*i2 + p13*i3)*(s1),
+                     (p11*i1 + p12*i2 + p13*i3)*(s1)-gamma1*i1,
+                     gamma1*i1,
+                     
+                     -(p21*i1 + p22*i2 + p23*i3)*(s2),
+                     (p21*i1 + p22*i2 + p23*i3)*(s2)-gamma2*i2,
+                     gamma2*i2,
+                     
+                     -(p31*i1 + p32*i2 + p33*i3)*(s3),
+                     (p31*i1 + p32*i2 + p33*i3)*(s3)-gamma3*i3,
+                     gamma3*i3,
+                     
+                     ])
+
+
+noise = 0.001
+n = 100
+
+t, S_data = RK4_sys(t0, tf, n, S0, SIR_3_const_subpop, p)
+
+np.random.seed(100)
+
+I_data = np.sum(S_data[1:-1:3, :], axis = 0)[0:-1:5]/3 + noise*np.random.random(n//5)
+t_data = t[1:-1:5]
+
+
+def Loss_const_subpop_unfixed(p):
+    I = np.sum(RK4_sys(t0, tf, n, S0, SIR_3_const_subpop, p)[1][1:-1:3,:], axis = 0)/3
+    I_tilde = I[0:-1:5]
+    data = I_data
+    residual = I_tilde-data
+    return np.dot(residual, residual)
+
+
+def Loss_const_subpop_infectivity_fixed(p):
+    I = np.sum(RK4_sys(t0, tf, n, S0, SIR_3_const_subpop_fixed_infect, p)[1][1:-1:3,:], axis = 0)/3
+    I_tilde = I[0:-1:5]
+    data = I_data
+    residual = I_tilde-data
+    return np.dot(residual, residual)
+
+def Loss_const_subpop_recovery_fixed(p):
+    I = np.sum(RK4_sys(t0, tf, n, S0, SIR_3_const_subpop_fixed_recov, p)[1][1:-1:3,:], axis = 0)/3
+    I_tilde = I[0:-1:5]
+    data = I_data
+    residual = I_tilde-data
+    return np.dot(residual, residual)
 
 
 
 
+unfixed_p0 = 0.2*np.ones(len(p))
+fixed_inf_p0 = 0.2*np.ones(3)
+fixed_rec_p0 = 0.2*np.ones(9)
+
+unfixed_pstar = fmin(Loss_const_subpop_unfixed, unfixed_p0, maxfun = 5000)
+fixed_inf_pstar = fmin(Loss_const_subpop_infectivity_fixed, fixed_inf_p0, maxfun = 5000)
+fixed_rec_pstar = fmin(Loss_const_subpop_recovery_fixed, fixed_rec_p0, maxfun = 5000)
+
+
+t, unfixed_S = RK4_sys(t0, tf, n, S0, SIR_3_const_subpop, unfixed_pstar)
+t, fixed_inf_S = RK4_sys(t0, tf, n, S0, SIR_3_const_subpop_fixed_infect, fixed_inf_pstar)
+t, fixed_rec_S = RK4_sys(t0, tf, n, S0, SIR_3_const_subpop_fixed_recov, fixed_rec_pstar)
 
 
 
+# unfixed estimates
+
+unfixed_S_total = np.sum(unfixed_S[0:-1:3, :], axis = 0)/3
+unfixed_I_total = np.sum(unfixed_S[1:-1:3, :], axis = 0)/3
+unfixed_R_total = np.sum(unfixed_S[2:9:3, :], axis = 0)/3
+
+unfixed_S1 = unfixed_S[0,:]
+unfixed_I1 = unfixed_S[1,:]
+unfixed_R1 = unfixed_S[2,:]
+
+unfixed_S2 = unfixed_S[3,:]
+unfixed_I2 = unfixed_S[4,:]
+unfixed_R2 = unfixed_S[5,:]
+
+unfixed_S3 = unfixed_S[6,:]
+unfixed_I3 = unfixed_S[7,:]
+unfixed_R3 = unfixed_S[8,:]
+
+# fixed infectivity estimates
+
+fixed_inf_S_total = np.sum(fixed_inf_S[0:-1:3, :], axis = 0)/3
+fixed_inf_I_total = np.sum(fixed_inf_S[1:-1:3, :], axis = 0)/3
+fixed_inf_R_total = np.sum(fixed_inf_S[2:9:3, :], axis = 0)/3
+
+fixed_inf_S1 = fixed_inf_S[0,:]
+fixed_inf_I1 = fixed_inf_S[1,:]
+fixed_inf_R1 = fixed_inf_S[2,:]
+
+fixed_inf_S2 = fixed_inf_S[3,:]
+fixed_inf_I2 = fixed_inf_S[4,:]
+fixed_inf_R2 = fixed_inf_S[5,:]
+
+fixed_inf_S3 = fixed_inf_S[6,:]
+fixed_inf_I3 = fixed_inf_S[7,:]
+fixed_inf_R3 = fixed_inf_S[8,:]
+
+# fixed recovery estimates
+
+fixed_rec_S_total = np.sum(fixed_rec_S[0:-1:3, :], axis = 0)/3
+fixed_rec_I_total = np.sum(fixed_rec_S[1:-1:3, :], axis = 0)/3
+fixed_rec_R_total = np.sum(fixed_rec_S[2:9:3, :], axis = 0)/3
+
+fixed_rec_S1 = fixed_rec_S[0,:]
+fixed_rec_I1 = fixed_rec_S[1,:]
+fixed_rec_R1 = fixed_rec_S[2,:]
+
+fixed_rec_S2 = fixed_rec_S[3,:]
+fixed_rec_I2 = fixed_rec_S[4,:]
+fixed_rec_R2 = fixed_rec_S[5,:]
+
+fixed_rec_S3 = fixed_rec_S[6,:]
+fixed_rec_I3 = fixed_rec_S[7,:]
+fixed_rec_R3 = fixed_rec_S[8,:]
 
 
+fig4, ax4 = plt.subplots(2,2, figsize = (10, 10))
+
+# unfixed and fixed parameters
+ax4[0,0].plot(t, unfixed_I_total, color = 'cornflowerblue', linewidth = 3, label = r'$I_{\text{unfixed}}$')
+ax4[0,0].plot(t, fixed_inf_I_total, color = 'mediumorchid', linewidth = 3, label = r'$I_{\text{inf}}$')
+ax4[0,0].plot(t, fixed_rec_I_total, color = 'tomato', linewidth = 3, label = r'$I_{\text{rec}}$')
+ax4[0,0].plot(t_data, I_data, linestyle = ' ', marker = '^', markersize = 7, color = 'forestgreen', label = r'$I_{\text{data}}$')
 
 
+ax4[0,0].legend(fontsize = 15)
+ax4[0,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax4[0,0].set_ylabel(r"\%$\text{inf}_{\text{total}}$", fontsize = 20)
+ax4[0,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
+ax4[0,0].set_ylim(0, .6)
+ax4[0,0].set_xlim(t0, tf+1)
+ax4[0,0].set_xticks(np.arange(t0, tf+1, 10))
+ax4[0,0].set_yticks(np.arange(0.1, 0.6, 0.1))
+ax4[0,0].set_title("(a)", fontsize = 15)
 
+
+# unfixed 
+ax4[0,1].plot(t, unfixed_S_total, color = 'cornflowerblue', linewidth = 3, label = r'$S_{\text{unfixed}}$')
+ax4[0,1].plot(t, unfixed_I_total, color = 'tomato', linewidth = 3, label = r'$I_{\text{unfixed}}$')
+ax4[0,1].plot(t, unfixed_R_total, color = 'lime', linewidth = 3, label = r'$R_{\text{unfixed}}$')
+
+
+# p_vect_text = (r"$\mathbf{p}_{\text{unfixed}}^{*}=\begin{bmatrix}"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"%1.3f\\"
+#                r"\end{bmatrix}$" %(unfixed_pstar[0],unfixed_pstar[1],unfixed_pstar[2],unfixed_pstar[3],
+#                                    unfixed_pstar[4],unfixed_pstar[5],unfixed_pstar[6],unfixed_pstar[7],
+#                                    unfixed_pstar[8],unfixed_pstar[9],unfixed_pstar[10],unfixed_pstar[11],))
+
+# textstr = '\n'.join((r"$\beta_{11}^{*} = $%1.3f" %(unfixed_pstar[0]),
+#                      r"$\beta_{12}^{*} = $%1.3f" %(unfixed_pstar[1]),
+#                      r"$\beta_{13}^{*} = $%1.3f" %(unfixed_pstar[2]),
+#                      r"$\beta_{21}^{*} = $%1.3f" %(unfixed_pstar[3]),
+#                      r"$\beta_{22}^{*} = $%1.3f" %(unfixed_pstar[4]),
+#                      r"$\beta_{23}^{*} = $%1.3f" %(unfixed_pstar[5]),
+#                      r"$\beta_{31}^{*} = $%1.3f" %(unfixed_pstar[6]),
+#                      r"$\beta_{32}^{*} = $%1.3f" %(unfixed_pstar[7]),
+#                      r"$\beta_{33}^{*} = $%1.3f" %(unfixed_pstar[8]),
+#                      r"$\gamma_{1}^{*} = $%1.3f" %(unfixed_pstar[9]),
+#                      r"$\gamma_{2}^{*} = $%1.3f" %(unfixed_pstar[10]),
+#                      r"$\gamma_{3}^{*} = $%1.3f" %(unfixed_pstar[11]),
+#                      ))
+
+props = dict(boxstyle='round', facecolor='whitesmoke', alpha=0.5)
+
+
+leg1 = ax4[0,1].legend(fontsize = 15, loc = 'best')
+# tbbox = leg1.get_window_extent()
+# inv = plt.gca().transAxes.inverted()
+# x0, y0 = inv.transform((tbbox.x0, tbbox.y0))
+
+# ax4[0,1].text(x0+0.05, y0+0.05, s = p_vect_text, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
+
+ax4[0,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax4[0,1].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax4[0,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
+ax4[0,1].set_ylim(0, 1.1)
+ax4[0,1].set_xlim(t0, tf+1)
+ax4[0,1].set_xticks(np.arange(t0, tf+1, 10))
+ax4[0,1].set_yticks(np.arange(0.1, 1.1, 0.1))
+ax4[0,1].set_title("(b)", fontsize = 15)
+
+# fixed infectivity
+ax4[1,0].plot(t, fixed_inf_S_total, color = 'cornflowerblue', linewidth = 3, label = r'$S_{\text{inf}}$')
+ax4[1,0].plot(t, fixed_inf_I_total, color = 'tomato', linewidth = 3, label = r'$I_{\text{inf}}$')
+ax4[1,0].plot(t, fixed_inf_R_total, color = 'lime', linewidth = 3, label = r'$R_{\text{inf}}$')
+
+# textstr = '\n'.join((  r"$\gamma_{1} = $%1.3f" %(gamma1),
+#                      r"$\gamma_{2} = $%1.3f" %(gamma2),
+#                      r"$\gamma_{3} = $%1.3f" %(gamma3),
+#                      r"$\gamma_{1}^{*} = $%1.3f" %(fixed_inf_pstar[0]),
+#                      r"$\gamma_{2}^{*} = $%1.3f" %(fixed_inf_pstar[1]),
+#                      r"$\gamma_{3}^{*} = $%1.3f" %(fixed_inf_pstar[2]),
+#                      ))
+
+props = dict(boxstyle='round', facecolor='whitesmoke', alpha=0.5)
+
+
+leg2 = ax4[1,0].legend(fontsize = 15, loc = 'best')
+tbbox = leg2.get_window_extent()
+inv = plt.gca().transAxes.inverted()
+x1, y1 = inv.transform((tbbox.x0, tbbox.y0))
+
+# ax4[1,0].text(x1+0.05, 13*y1, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
+
+ax4[1,0].set_xlabel("time [a.u.]", fontsize = 20)
+ax4[1,0].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax4[1,0].tick_params(axis = 'both', which = 'major', labelsize = 15)
+ax4[1,0].set_ylim(0, 1.1)
+ax4[1,0].set_xlim(t0, tf+1)
+ax4[1,0].set_xticks(np.arange(t0, tf+1, 10))
+ax4[1,0].set_yticks(np.arange(0.1, 1.1, 0.1))
+ax4[1,0].set_title("(c)", fontsize = 15)
+
+
+# fixed recovery
+ax4[1,1].plot(t, fixed_rec_S_total, color = 'cornflowerblue', linewidth = 3, label = r'$S_{\text{rec}}$')
+ax4[1,1].plot(t, fixed_rec_I_total, color = 'tomato', linewidth = 3, label = r'$I_{\text{rec}}$')
+ax4[1,1].plot(t, fixed_rec_R_total, color = 'lime', linewidth = 3, label = r'$R_{\text{rec}}$')
+
+textstr = '\n'.join((
+                     r"$\beta_{11}^{*} = $%1.3f" %(fixed_rec_pstar[0]),
+                     r"$\beta_{12}^{*} = $%1.3f" %(fixed_rec_pstar[1]),
+                     r"$\beta_{13}^{*} = $%1.3f" %(fixed_rec_pstar[2]),
+                     r"$\beta_{21}^{*} = $%1.3f" %(fixed_rec_pstar[3]),
+                     r"$\beta_{22}^{*} = $%1.3f" %(fixed_rec_pstar[4]),
+                     r"$\beta_{23}^{*} = $%1.3f" %(fixed_rec_pstar[5]),
+                     r"$\beta_{31}^{*} = $%1.3f" %(fixed_rec_pstar[6]),
+                     r"$\beta_{32}^{*} = $%1.3f" %(fixed_rec_pstar[7]),
+                     r"$\beta_{33}^{*} = $%1.3f" %(fixed_rec_pstar[8]),
+                     ))
+
+props = dict(boxstyle='round', facecolor='whitesmoke', alpha=0.5)
+
+
+leg3 = ax4[1,1].legend(fontsize = 15, loc = 'best')
+# tbbox = leg3.get_window_extent()
+# inv = plt.gca().transAxes.inverted()
+# x0, y0 = inv.transform((tbbox.x0, tbbox.y0))
+
+#ax4[1,1].text(x0+0.05, 13*y0, s = textstr, bbox = props, fontsize = 12, transform = plt.gca().transAxes)
+
+ax4[1,1].set_xlabel("time [a.u.]", fontsize = 20)
+ax4[1,1].set_ylabel(r"\%$\text{pop}_{\text{total}}$", fontsize = 20)
+ax4[1,1].tick_params(axis = 'both', which = 'major', labelsize = 15)
+ax4[1,1].set_ylim(0, 1.1)
+ax4[1,1].set_xlim(t0, tf+1)
+ax4[1,1].set_xticks(np.arange(t0, tf+1, 10))
+ax4[1,1].set_yticks(np.arange(0.1, 1.1, 0.1))
+ax4[1,1].set_title("(d)", fontsize = 15)
+
+fig4.suptitle("3-Coupled Const Subpop SIR Model Time-Series\nnoise = %1.3f" %(noise), fontsize = 25)
+fig4.tight_layout()
+fig4.show()
+
+print("======================================================")
+print("p_{unfixed}=")
+print('(%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f)' %(unfixed_pstar[0],unfixed_pstar[1],
+                                                                                        unfixed_pstar[2],unfixed_pstar[3],
+                                                                                          unfixed_pstar[4],unfixed_pstar[5],
+                                                                                          unfixed_pstar[6],unfixed_pstar[7],
+                                                                                          unfixed_pstar[8],unfixed_pstar[9],
+                                                                                          unfixed_pstar[10],unfixed_pstar[11],))
+print()
+print("======================================================")
+print("p_{inf}=")
+print('(%1.3f,%1.3f,%1.3f)' %(fixed_inf_pstar[0],fixed_inf_pstar[1],fixed_inf_pstar[2]))
+print()
+print("======================================================")
+print("p_{rec}=")
+print('(%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f,%1.3f)' %(fixed_rec_pstar[0],fixed_rec_pstar[1],
+                                                                                        fixed_rec_pstar[2],fixed_rec_pstar[3],
+                                                                                          fixed_rec_pstar[4],fixed_rec_pstar[5],
+                                                                                          fixed_rec_pstar[6],fixed_rec_pstar[7],
+                                                                                          fixed_rec_pstar[8]))
+print()
 
 
 
