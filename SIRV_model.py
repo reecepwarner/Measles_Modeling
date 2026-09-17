@@ -148,7 +148,7 @@ def L(p):
     S = X[0,:]
     I = X[1,:]
     
-    I_tilde = S[-1:n+1:5]*I[-1:n+1:5]
+    I_tilde = S[0:n:5]*I[0:n:5]
     residual = I_tilde - I_data
     
     return np.dot(residual, residual)
@@ -159,7 +159,7 @@ def L(p):
 p0 = np.ones(2)
 
 constraint = LinearConstraint(np.array([[1,0],
-                                        [0, 1]]), lb = 0, ub = 1)
+                                        [0, 1]]), lb = 0, ub = 1.)
 
 
 p_star = minimize(L, p0, method = 'trust-constr', constraints = (constraint) ).x
@@ -238,7 +238,7 @@ ax4[0,0].set_ylim(0,1.1)
 ax4[0,0].set_xlabel(r"$\beta t$", fontsize = 15)
 ax4[0,0].set_ylabel("\%pop", fontsize = 15, rotation = 90)
 ax4[0,0].set_xticks(np.arange(0, tauf+1, 1))
-ax4[0,0].set_yticks(np.arange(0.0, 1.1, 0.1))
+ax4[0,0].set_yticks(np.arange(0.0, 1.1, 0.25))
 ax4[0,0].tick_params(axis = 'both', labelsize = 10)
 ax4[0,0].set_title("(a)", fontsize = 15)
 
@@ -254,7 +254,7 @@ ax4[0,1].set_ylim(0,1.1)
 ax4[0,1].set_xlabel(r"$\beta t$", fontsize = 15)
 ax4[0,1].set_ylabel("\%pop", fontsize = 15, rotation = 90)
 ax4[0,1].set_xticks(np.arange(0, tauf+1, 1))
-ax4[0,1].set_yticks(np.arange(0.0, 1.1, 0.1))
+ax4[0,1].set_yticks(np.arange(0.0, 1.1, 0.25))
 ax4[0,1].tick_params(axis = 'both', labelsize = 10)
 ax4[0,1].set_title("(b)", fontsize = 15)
 
@@ -270,7 +270,7 @@ ax4[1,0].set_ylim(0,1.1)
 ax4[1,0].set_xlabel(r"$\beta t$", fontsize = 15)
 ax4[1,0].set_ylabel("\%pop", fontsize = 15, rotation = 90)
 ax4[1,0].set_xticks(np.arange(0, tauf+1, 1))
-ax4[1,0].set_yticks(np.arange(0.0, 1.1, 0.1))
+ax4[1,0].set_yticks(np.arange(0.0, 1.1, 0.25))
 ax4[1,0].tick_params(axis = 'both', labelsize = 10)
 ax4[1,0].set_title("(c)", fontsize = 15)
 
@@ -286,7 +286,7 @@ ax4[1,1].set_ylim(0,1.1)
 ax4[1,1].set_xlabel(r"$\beta t$", fontsize = 15)
 ax4[1,1].set_ylabel("\%pop", fontsize = 15, rotation = 90)
 ax4[1,1].set_xticks(np.arange(0, tauf+1, 1))
-ax4[1,1].set_yticks(np.arange(0.0, 1.1, 0.1))
+ax4[1,1].set_yticks(np.arange(0.0, 1.1, 0.25))
 ax4[1,1].tick_params(axis = 'both', labelsize = 10)
 ax4[1,1].set_title("(c)", fontsize = 15)
 
