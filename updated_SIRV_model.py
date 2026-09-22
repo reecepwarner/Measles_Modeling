@@ -48,6 +48,9 @@ def R0(v0, s0, beta, gamma, sigma):
 def V0(sigma, beta, gamma):
     return (gamma/beta - 1)/(sigma - 1)
 
+def V0_i(i0, sigma, beta, gamma):
+    return (gamma/beta + i0 - 1)/(sigma - 1)
+
 # def V0(i0, sigma, beta, gamma):
 #     return (gamma + beta*(s0))/(beta*( sigma ))
 
@@ -224,7 +227,7 @@ R0s_oregon = beta_oregon/gamma_oregon*(1 - V0s_oregon - i0_oregon + SIG_oregon*V
 
 
 
-V_sig_oregon = V0(sigmas_oregon[:-1], beta_oregon, gamma_oregon)
+V_sig_oregon = V0_i(i0_oregon, sigmas_oregon[:-1], beta_oregon, gamma_oregon)
 
 V_sig_trunc_oregon = V_sig_oregon[:51]
 
